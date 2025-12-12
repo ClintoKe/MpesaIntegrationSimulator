@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="72d7f464-df6c-4b92-835c-ee728d9820d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/MpesaSimulatorApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/config/SchedulerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/controller/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/controller/MpesaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/dto/CallbackPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/dto/InitiateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/dto/InitiateResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/dto/StatusResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/model/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/model/TransactionStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/repository/TransactionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/java/com/example/mpesa/service/MpesaSimulationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpesa-simulator-backend/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/mpesa-simulator-frontend" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="36k8beyZTWdTPATpN93YQDLxW8c" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.index.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "708",
+    "RequestMappingsPanelWidth1": "707",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.MpesaIntegrationsimulatorApplication.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="MpesaIntegrationsimulatorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.mpesaintegrationsimulator.MpesaIntegrationsimulatorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72d7f464-df6c-4b92-835c-ee728d9820d4" name="Changes" comment="" />
+      <created>1765539283234</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765539283234</updated>
+      <workItem from="1765539285815" duration="3965000" />
+      <workItem from="1765543333632" duration="1246000" />
+      <workItem from="1765544667331" duration="6286000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -23,5 +23,5 @@ Frontend (React + Vite):
 
 Simulation notes:
 - Initiating creates a transaction with status PROCESSING and schedules a simulated callback in ~2s.
-- The callback randomly marks the transaction SUCCESS (70%) or FAILED (30%).
+- The callback randomly marks the transaction SUCCESS when approved by pin or FAILED when user aborts by the cancel button.
 - The frontend polls /api/mpesa/status/{id} once per second until status != PROCESSING.

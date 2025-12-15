@@ -37,9 +37,21 @@ public class MpesaController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/approve/{id}")
+    public ResponseEntity<StatusResponse> approve(@PathVariable("id") UUID id, @RequestParam("pin") String pin) {
+        Transaction tx = service.approve(id, pin);
+        return ResponseEntity.ok(new StatusResponse(tx.getId(), tx.getStatus(), tx.getResultCode(), tx.getResultDesc()));
+    }
+
+    @PostMapping("/cancel/{id}")
+    public ResponseEntity<StatusResponse> cancel(@PathVariable("id") UUID id) {
+        Transaction tx = service.cancel(id);
+        return ResponseEntity.ok(new StatusResponse(tx.getId(), tx.getStatus(), tx.getResultCode(), tx.getResultDesc()));
+    }
+
     // Optional helper to let frontend check result status
     @GetMapping("/status/{id}")
-    public ResponseEntity<StatusResponse> status(@PathVariable UUID id) {
+    public ResponseEntity<StatusResponse> status(@PathVariable("id") UUID id) {
         Transaction tx = service.get(id);
         return ResponseEntity.ok(new StatusResponse(
                 tx.getId(), tx.getStatus(), tx.getResultCode(), tx.getResultDesc()

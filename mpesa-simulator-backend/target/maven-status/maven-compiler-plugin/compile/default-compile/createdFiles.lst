@@ -3,11 +3,16 @@ com\example\mpesa\MpesaSimulatorApplication.class
 com\example\mpesa\model\TransactionStatus.class
 com\example\mpesa\repository\TransactionRepository.class
 com\example\mpesa\service\MpesaSimulationService.class
+com\example\mpesa\controller\DarajaMockController.class
 com\example\mpesa\controller\GlobalExceptionHandler.class
+com\example\mpesa\dto\daraja\StkPushRequest.class
+com\example\mpesa\dto\daraja\StkPushResponse.class
 com\example\mpesa\dto\InitiateResponse.class
 com\example\mpesa\dto\StatusResponse.class
+com\example\mpesa\dto\daraja\StkPushQueryResponse.class
 com\example\mpesa\config\SchedulerConfig.class
 com\example\mpesa\controller\MpesaController.class
 com\example\mpesa\model\Transaction$TransactionBuilder.class
 com\example\mpesa\model\Transaction.class
+com\example\mpesa\dto\daraja\StkPushQueryRequest.class
 com\example\mpesa\dto\CallbackPayload.class

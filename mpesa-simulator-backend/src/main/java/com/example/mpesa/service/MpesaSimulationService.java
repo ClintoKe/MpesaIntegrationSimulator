@@ -34,12 +34,7 @@ public class MpesaSimulationService {
                 .build();
         tx = transactionRepository.save(tx);
 
-        // schedule a simulated callback after 2 seconds
-        var when = Instant.now().plusSeconds(2);
-        UUID txId = tx.getId();
-        String checkoutRequestId = tx.getCheckoutRequestId();
-        taskScheduler.schedule(() -> simulateCallback(txId, checkoutRequestId), when);
-
+        // Do not schedule any automatic callback. Outcome will be decided by user action (approve/cancel).
         return tx;
     }
 
@@ -48,10 +43,13 @@ public class MpesaSimulationService {
         Transaction tx = transactionRepository.findByCheckoutRequestId(payload.checkoutRequestId())
                 .orElseThrow(() -> new IllegalArgumentException("Transaction not found for checkoutRequestId"));
 
-        tx.setResultCode(payload.resultCode());
-        tx.setResultDesc(payload.resultDesc());
-        tx.setStatus("0".equals(payload.resultCode()) ? TransactionStatus.SUCCESS : TransactionStatus.FAILED);
-        transactionRepository.save(tx);
+        // Only apply callback if still processing AND no user path has started (resultDesc still null)
+        if (tx.getStatus() == TransactionStatus.PROCESSING && tx.getResultDesc() == null) {
+            tx.setResultCode(payload.resultCode());
+            tx.setResultDesc(payload.resultDesc());
+            tx.setStatus("0".equals(payload.resultCode()) ? TransactionStatus.SUCCESS : TransactionStatus.FAILED);
+            transactionRepository.save(tx);
+        }
     }
 
     @Transactional(readOnly = true)
@@ -60,14 +58,54 @@ public class MpesaSimulationService {
                 .orElseThrow(() -> new IllegalArgumentException("Transaction not found"));
     }
 
-    private void simulateCallback(UUID txId, String checkoutRequestId) {
-        // Randomly determine success (70%) or failure (30%)
-        boolean success = random.nextDouble() < 0.7;
-        String resultCode = success ? "0" : "1";
-        String resultDesc = success ? "The service request is processed successfully." : "The service request failed.";
+    @Transactional(readOnly = true)
+    public Transaction getByCheckoutRequestId(String checkoutRequestId) {
+        return transactionRepository.findByCheckoutRequestId(checkoutRequestId)
+                .orElseThrow(() -> new IllegalArgumentException("Transaction not found for checkoutRequestId"));
+    }
 
-        // Use service method to update state (transactional)
-        handleCallback(new CallbackPayload(checkoutRequestId, resultCode, resultDesc));
+    @Transactional
+    public Transaction approve(UUID id, String pin) {
+        if (pin == null || !pin.matches("\\d{4,6}")) {
+            throw new IllegalArgumentException("Invalid PIN format");
+        }
+        Transaction tx = get(id);
+        if (tx.getStatus() == TransactionStatus.PROCESSING) {
+            // Immediately approve as SUCCESS
+            tx.setResultCode("0");
+            tx.setResultDesc("User approved with PIN");
+            tx.setStatus(TransactionStatus.SUCCESS);
+            transactionRepository.save(tx);
+        }
+        return tx;
+    }
+
+    @Transactional
+    public void completeApproval(UUID id) {
+        Transaction t = get(id);
+        // Only mark success if still processing (not cancelled in the meantime)
+        if (t.getStatus() == TransactionStatus.PROCESSING) {
+            t.setResultCode("0");
+            t.setResultDesc("User approved with PIN");
+            t.setStatus(TransactionStatus.SUCCESS);
+            transactionRepository.save(t);
+        }
+    }
+
+    @Transactional
+    public Transaction cancel(UUID id) {
+        Transaction tx = get(id);
+        if (tx.getStatus() == TransactionStatus.PROCESSING) {
+            tx.setResultCode("1");
+            tx.setResultDesc("User cancelled");
+            tx.setStatus(TransactionStatus.FAILED);
+            transactionRepository.save(tx);
+        }
+        return tx;
+    }
+
+    private void simulateCallback(UUID txId, String checkoutRequestId) {
+        // Deprecated: no automatic callbacks. Left in place in case of future simulation needs.
     }
 
     private String normalizePhone(String phone) {
